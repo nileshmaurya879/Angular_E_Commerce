@@ -1,0 +1,58 @@
+{
+  "seller": [
+    {
+      "id": "7d69",
+      "name": "Nilesh Kumar Maurya",
+      "email": "maurya630@gmail.com",
+      "password": "abc@1234"
+    },
+    {
+      "id": "1279",
+      "name": "NIlesh Kumar",
+      "email": "maurya789@gmail.com",
+      "password": "bcd@1234"
+    },
+    {
+      "id": "91bf",
+      "name": "Rahul Kumar",
+      "email": "rahul630@gmail.com",
+      "password": "rahul@1234"
+    },
+    {
+      "id": "c96a",
+      "name": "nilesh kumar",
+      "email": "rahul630@gmail.com",
+      "password": "1234556"
+    },
+    {
+      "id": "7a8a",
+      "name": "NIlesh Kumar",
+      "email": "maurya789@gmail.com",
+      "password": "zcz"
+    },
+    {
+      "id": "b226",
+      "name": "xddf",
+      "email": "rahul630@gmail.com",
+      "password": "d22142"
+    },
+    {
+      "id": "578a",
+      "name": "xddf",
+      "email": "rahul630@gmail.com",
+      "password": "d22142"
+    },
+    {
+      "id": "ff1c",
+      "name": "nilesh kumar",
+      "email": "maurya789@gmail.com",
+      "password": "123343456"
+    },
+    {
+      "id": "c42f",
+      "name": "dsfdsf",
+      "email": "maurya789@gmail.com",
+      "password": "21321321"
+    }
+  ]
+}
