@@ -5,21 +5,24 @@
             <div class="text-center mb-4">
                 <h6>SELLER SIGN UP PAGE</h6>
             </div>
-            <div class="mb-3">
-                <label for="labelForUserName" class="form-label">Enter User Name:</label>
-                <input type="text" class="form-control" id="labelForUserName" placeholder="Enter User Name">
-            </div>
-            <div class="mb-3">
-                <label for="labelForUserPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="labelForUserPassword" placeholder="Password">
-            </div>
-            <div class="mb-3">
-                <label for="labelForUserEmail" class="form-label">User Email:</label>
-                <input type="email" class="form-control" id="labelForUserEmail" placeholder="Email">
-            </div>
-            <div class="d-grid col-12">
-                <button class="btn btn-primary" type="button" (click)="SellerSignUp()">Sign Up</button>
-            </div>
+            <form [formGroup]="sellerFormGroup">
+                <div class="mb-3">
+                    <label for="labelForUserName" class="form-label">Enter User Name:</label>
+                    <input type="text" class="form-control" id="labelForUserName" formControlName="name" placeholder="Enter User Name">
+                </div>
+                <div class="mb-3">
+                    <label for="labelForUserPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="labelForUserPassword" formControlName="password" placeholder="Password">
+                </div>
+                <div class="mb-3">
+                    <label for="labelForUserEmail" class="form-label">User Email:</label>
+                    <input type="email" class="form-control" id="labelForUserEmail" formControlName="email" placeholder="Email">
+                </div>
+                <div class="d-grid col-12">
+                    <button class="btn btn-primary" type="button" (click)="SellerSignUp()">Sign Up</button>
+                </div>
+            </form>
+          
         </div>
     </div>
 </div>
