@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "./Component/header/header.component";
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { SellerService } from './services/seller.service';
 @Component({
   selector: 'app-root',
 
@@ -9,6 +10,18 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [HeaderComponent,RouterOutlet]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'E-Commerce';
+  constructor(private sellerSignUpService:SellerService, private router:Router){
+
+  }
+
+  ngOnInit() : void {
+    console.log('oninit++++++++++')
+    if(localStorage.getItem("sellerHome")){
+      this.sellerSignUpService.isSellerLoggedIn.next(true);
+      this.router.navigate(['home'])
+    }
+}
 }
