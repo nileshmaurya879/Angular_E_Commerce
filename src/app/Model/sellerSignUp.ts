@@ -3,3 +3,10 @@ export interface sellerSignUpService_Request{
     email:string,
     password:string
 }
+
+export interface sellerSignUpService_Response{
+    id:string,
+    name:string,
+    email:string,
+    password?:string
+}

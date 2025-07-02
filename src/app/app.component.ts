@@ -7,21 +7,23 @@ import { SellerService } from './services/seller.service';
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent,RouterOutlet]
+  imports: [HeaderComponent, RouterOutlet]
 })
 
 export class AppComponent implements OnInit {
 
   title = 'E-Commerce';
-  constructor(private sellerSignUpService:SellerService, private router:Router){
+  constructor(private sellerSignUpService: SellerService, private router: Router) {
 
   }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     console.log('oninit++++++++++')
-    if(localStorage.getItem("sellerHome")){
+    if (localStorage.getItem("sellerHome")) {
       this.sellerSignUpService.isSellerLoggedIn.next(true);
       this.router.navigate(['home'])
     }
-}
+  }
+
+  
 }

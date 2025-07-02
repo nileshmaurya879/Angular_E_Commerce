@@ -1,28 +1,61 @@
 <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center">
     <div class="col-md-4 col-sm-8 col-10">
         <!-- Bordered box -->
-        <div class="border rounded p-4 shadow-sm bg-white">
+
+        <!-- Sign Up Area -->
+        <div *ngIf="!showLogin" class="border rounded p-4 shadow-sm bg-white">
             <div class="text-center mb-4">
                 <h6>SELLER SIGN UP PAGE</h6>
             </div>
             <form [formGroup]="sellerFormGroup">
                 <div class="mb-3">
                     <label for="labelForUserName" class="form-label">Enter User Name:</label>
-                    <input type="text" class="form-control" id="labelForUserName" formControlName="name" placeholder="Enter User Name">
+                    <input type="text" class="form-control" id="labelForUserName" formControlName="name"
+                        placeholder="Enter User Name">
                 </div>
                 <div class="mb-3">
                     <label for="labelForUserPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="labelForUserPassword" formControlName="password" placeholder="Password">
+                    <input type="password" class="form-control" id="labelForUserPassword" formControlName="password"
+                        placeholder="Password">
                 </div>
                 <div class="mb-3">
                     <label for="labelForUserEmail" class="form-label">User Email:</label>
-                    <input type="email" class="form-control" id="labelForUserEmail" formControlName="email" placeholder="Email">
+                    <input type="email" class="form-control" id="labelForUserEmail" formControlName="email"
+                        placeholder="Email">
                 </div>
                 <div class="d-grid col-12">
                     <button class="btn btn-primary" type="button" (click)="SellerSignUp()">Sign Up</button>
                 </div>
+                <a (click)="openLoginPage(true)" style="cursor: pointer;">Alredy have account? Click to login</a>
+
             </form>
-          
+
         </div>
+
+        <!-- Sign Up Area -->
+        <div *ngIf="showLogin" class="border rounded p-4 shadow-sm bg-white">
+            <div class="text-center mb-4">
+                <h6>SELLER LOGIN PAGE</h6>
+            </div>
+            <form [formGroup]="sellerFormGroup">
+                <div class="mb-3">
+                    <label for="labelForUserEmail" class="form-label">User Email:</label>
+                    <input type="email" class="form-control" id="labelForUserEmail" formControlName="email"
+                        placeholder="Email">
+                </div>
+                <div class="mb-3">
+                    <label for="labelForUserPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="labelForUserPassword" formControlName="password"
+                        placeholder="Password">
+                </div>
+
+                <div class="d-grid col-12">
+                    <button class="btn btn-primary" type="button" (click)="SellerSignUp()">Login</button>
+                </div>
+                <a (click)="openLoginPage(false)" style="cursor: pointer;">Don't have account? Click to Sign-Up</a>
+            </form>
+
+        </div>
+
     </div>
 </div>

@@ -1,39 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { SellerService } from '../../services/seller.service';
-import { FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { sellerSignUpService_Request } from '../../Model/sellerSignUp';
-import { BehaviorSubject } from 'rxjs';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { sellerSignUpService_Request, sellerSignUpService_Response } from '../../Model/sellerSignUp';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-seller-auth',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './seller-auth.component.html',
   styleUrl: './seller-auth.component.css'
 })
-export class SellerAuthComponent{
+export class SellerAuthComponent {
   sellerFormGroup: FormGroup = new FormGroup({
-    name:new FormControl(),
-    email:new FormControl(),
-    password:new FormControl()
+    name: new FormControl(),
+    email: new FormControl(),
+    password: new FormControl()
   })
 
-  constructor(private sellerSignUpService: SellerService, private router:Router){
+  constructor(private sellerSignUpService: SellerService, private router: Router) { }
 
-  }
-
-  
-  SellerSignUp(){
-    console.log(this.sellerFormGroup)
-    const sellerRequestData:sellerSignUpService_Request = this.sellerFormGroup.value as sellerSignUpService_Request;
-    this.sellerSignUpService.PostSellerSignUp(sellerRequestData).subscribe((res:any)=>{
+  showLogin: boolean = false;
+  SellerSignUp() {
+    const sellerRequestData: sellerSignUpService_Request = this.sellerFormGroup.value as sellerSignUpService_Request;
+    this.sellerSignUpService.PostSellerSignUp(sellerRequestData).subscribe((res) => {
       this.sellerSignUpService.isSellerLoggedIn.next(true);
-      console.log(this.sellerSignUpService.isSellerLoggedIn.value);
-      localStorage.setItem("sellerHome",JSON.stringify(res))
-      console.log(localStorage.getItem("sellerHome"))
+      console.log(JSON.stringify(res))
+      localStorage.setItem("sellerHome", JSON.stringify(res))
       this.router.navigate(['home'])
-      
     })
   }
-  
+  openLoginPage(isLoginPage:boolean) {
+    if(isLoginPage){
+      this.showLogin = true
+    }else{
+      this.showLogin = false 
+    }
+  }
+
 }
