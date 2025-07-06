@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { sellerLogin_RequestData, sellerSignUpService_Request, sellerSignUpService_Response } from '../Model/sellerSignUp';
+import { sellerLogin_RequestData, sellerLogin_ResponseData, sellerSignUpService_Request, sellerSignUpService_Response } from '../Model/sellerSignUp';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -22,6 +22,6 @@ export class SellerService {
   }
 
   GetSellerLogin(data:sellerLogin_RequestData){
-    return this.http.get<sellerSignUpService_Response>(this.baseUrl+"/seller?email="+data.email+"&password="+data.password);
+    return this.http.get<sellerLogin_ResponseData>(this.baseUrl+"/seller?email="+data.email+"&password="+data.password);
   }
 }
