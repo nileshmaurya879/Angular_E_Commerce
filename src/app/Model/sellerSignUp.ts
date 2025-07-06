@@ -10,3 +10,17 @@ export interface sellerSignUpService_Response{
     email:string,
     password?:string
 }
+
+export interface sellerLogin_RequestData
+{
+    email:string,
+    password:string
+}
+
+export interface sellerLogin_ResponseData
+{
+    id:string,
+    name: string,
+    email:string,
+    password:string
+}
