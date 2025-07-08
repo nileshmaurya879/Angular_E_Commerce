@@ -34,7 +34,7 @@ export class SellerAuthComponent {
     this.sellerSignUpService.PostSellerSignUp(sellerRequestData).subscribe((res) => {
       this.sellerSignUpService.isSellerLoggedIn.next(true);
       console.log(JSON.stringify(res))
-      localStorage.setItem("sellerHome", JSON.stringify(res))
+      localStorage.setItem("seller", JSON.stringify(res))
       this.router.navigate(['seller-home'])
     })
   }
@@ -53,7 +53,7 @@ export class SellerAuthComponent {
       console.log(res);
       this.sellerSignUpService.isSellerLoggedIn.next(true);
       console.log(JSON.stringify(res))
-      localStorage.setItem("sellerHome", JSON.stringify(res))
+      localStorage.setItem("seller", JSON.stringify(res))
       this.router.navigate(['seller-home'])
     })
   }

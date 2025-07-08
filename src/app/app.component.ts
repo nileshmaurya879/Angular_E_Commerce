@@ -19,9 +19,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('oninit++++++++++')
-    if (localStorage.getItem("sellerHome")) {
+    if (localStorage.getItem("seller")) {
       this.sellerSignUpService.isSellerLoggedIn.next(true);
-      this.router.navigate(['home'])
+      this.router.navigate(['seller-home'])
     }
   }
 
