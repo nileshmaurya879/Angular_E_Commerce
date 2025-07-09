@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink,CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -18,12 +19,12 @@ export class HeaderComponent implements OnInit {
       if (val.url) {
         console.log(val.url.includes("seller"))
         if (localStorage.getItem('seller') && val.url.includes('seller')) {
-          console.log("seller erea..")
           this.menuType = "seller"
+          console.log("in seller erea.."+this.menuType)
         }
         else {
-          console.log("other erea..")
           this.menuType = "Default"
+          console.log("other erea.."+this.menuType)
         }
       }
     })

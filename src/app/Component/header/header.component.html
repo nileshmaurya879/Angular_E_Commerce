@@ -3,26 +3,46 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#" style="color: white;">E-Commerce</a>
+      <a class="navbar-brand" routerLink="/" style="color: white;">E-Commerce</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="color: white;">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" >
-            <a class="nav-link active" aria-current="page" routerLink="seller-home" style="color: white;">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="seller-auth" style="color: white;">Seller</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" tabindex="-1" aria-disabled="true" style="color: white;">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" style="color: white;">Cart(0)</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit"  style="background-color:rgb(68, 149, 204); color: white;">Search</button>
-        </form>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="color: white;" [ngSwitch]="menuType">
+          <ul *ngSwitchCase="'Default'" class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" >
+              <a class="nav-link active" aria-current="page" routerLink="" style="color: white;">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="seller-auth" style="color: white;">Seller</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" tabindex="-1" aria-disabled="true" style="color: white;">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" style="color: white;">Cart(0)</a>
+            </li>
+          </ul>
+          <ul *ngSwitchCase="'seller'" class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" >
+              <a class="nav-link active" aria-current="page" routerLink="" style="color: white;">Product List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" style="color: white;">Add Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="" tabindex="-1" aria-disabled="true" style="color: white;">LogOut</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true" style="color: white;">Seller Name</a>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="menuType === 'Default'">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"  style="background-color:rgb(68, 149, 204); color: white;">Search</button>
+          </form>
+        </div>
+       
       </div>
     </div>
   </nav>
