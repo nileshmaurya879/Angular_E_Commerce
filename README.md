@@ -4,4 +4,6 @@
 2. URL for Create DataBase: https://github.com/typicode/json-server
 
 3. Start Json Server: json-server db.json
-    run this in db.json folder 
+
+
+    Note: run this in db.json folder 

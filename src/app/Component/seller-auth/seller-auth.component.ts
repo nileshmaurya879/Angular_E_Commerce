@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SellerService } from '../../services/seller.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { sellerSignUpService_Request, sellerSignUpService_Response } from '../../Model/sellerSignUp';
+import { sellerLogin_RequestData, sellerSignUpService_Request, sellerSignUpService_Response } from '../../Model/sellerSignUp';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -18,6 +18,14 @@ export class SellerAuthComponent {
     password: new FormControl()
   })
 
+  sellerSignInFormGroup: FormGroup = new FormGroup
+    (
+      {
+        email: new FormControl(),
+        password: new FormControl()
+      }
+    )
+
   constructor(private sellerSignUpService: SellerService, private router: Router) { }
 
   showLogin: boolean = false;
@@ -26,16 +34,29 @@ export class SellerAuthComponent {
     this.sellerSignUpService.PostSellerSignUp(sellerRequestData).subscribe((res) => {
       this.sellerSignUpService.isSellerLoggedIn.next(true);
       console.log(JSON.stringify(res))
-      localStorage.setItem("sellerHome", JSON.stringify(res))
-      this.router.navigate(['home'])
+      localStorage.setItem("seller", JSON.stringify(res))
+      this.router.navigate(['seller-home'])
     })
   }
-  openLoginPage(isLoginPage:boolean) {
-    if(isLoginPage){
+  openLoginPage(isLoginPage: boolean) {
+    if (isLoginPage) {
       this.showLogin = true
-    }else{
-      this.showLogin = false 
+    } else {
+      this.showLogin = false
     }
   }
+
+  /*=============START: Sign In Page===============*/
+  SellerSignIn() {
+    const sellerLoginInDetail = this.sellerSignInFormGroup.value as sellerLogin_RequestData
+    this.sellerSignUpService.GetSellerLogin(sellerLoginInDetail).subscribe((res) => {
+      console.log(res);
+      this.sellerSignUpService.isSellerLoggedIn.next(true);
+      console.log(JSON.stringify(res))
+      localStorage.setItem("seller", JSON.stringify(res))
+      this.router.navigate(['seller-home'])
+    })
+  }
+  /*=============END: Sign In Page===============*/
 
 }
